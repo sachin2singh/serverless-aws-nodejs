@@ -1,1 +1,1 @@
-module.exports.FEATURE_FLAGS_TABLE = 'DYNAMO_FEATURE_FLAGS_TABLE';
+module.exports.EMP_TABLE = 'DYNAMO_EMP_TABLE';
