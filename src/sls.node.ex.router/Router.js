@@ -1,7 +1,7 @@
 const Router  = require('express');
 const apiFeatureRouter = new Router();
-const {getFeatureFlags} = require('../sls.node.ex.handler/sls-node-handler');
-const {FEATURE_FLAGS_TABLE} = require ('../sls.node.ex.utils/common');
+const {getFeature} = require('../sls.node.ex.handler/sls-node-handler');
+const {EMP_TABLE} = require ('../sls.node.ex.utils/common');
 const {FEATURE_CONSTANT} = require ('../sls.node.ex.utils/constant');
 const dotenv = require('dotenv');
 const envVar = dotenv.config();
@@ -21,7 +21,7 @@ apiFeatureRouter.get('/:country/:partner?/:majorVersion?/:minorVersion?/:encoded
   const key = {
         [FEATURE_CONSTANT.DOC_ID] : docId
       };
-    const data = await getFeatureFlags(FEATURE_FLAGS_TABLE, key);
+    const data = await getFeature(EMP_TABLE, key);
     res.status(200).json(data);
 });
 apiFeatureRouter.post ('/megatron/list.optimus.json', async (req, res, next) => {
