@@ -17,3 +17,5 @@ This project exposes REST api using serverless framework, AWS Lambda, API Gatewa
   * Versioning maintain on lambda function.
 ## Remove
   * sls remove
+  
+  
