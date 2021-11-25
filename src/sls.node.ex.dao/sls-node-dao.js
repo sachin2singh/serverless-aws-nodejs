@@ -8,7 +8,7 @@ const accessKeyId = process.env.DYNAMO_ACCESSKEY;
 const secretAccessKey = process.env.DYNAMO_SECRET;
 const region = process.env.DYNAMO_REGION; 
 
-class DynamodbStorage {
+class DynamodbStorage{
 
     constructor () {
       if (process.env.host=== 'local') {
