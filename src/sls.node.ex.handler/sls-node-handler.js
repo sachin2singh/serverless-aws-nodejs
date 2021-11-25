@@ -1,6 +1,6 @@
 const DynamodbStorage = require('../sls.node.ex.dao/sls-node-dao');
 
-module.exports.getFeatureFlags = async (tableNamekey, key) => {
+module.exports.getFeature = async (tableNamekey, key) => {
     const table = process.env[tableNamekey];
     const params = {
         TableName : table,
