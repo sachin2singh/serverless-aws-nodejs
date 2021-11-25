@@ -29,7 +29,7 @@ provider:
   stage: dev
   region: us-east-1
   environment:
-    DYNAMO_FEATURE_FLAGS_TABLE: ${self:provider.stage}-${opt:flags_table_key, self:provider.flags_table_key}
+    DYNAMO_EMP_TABLE: ${self:provider.stage}-${opt:flags_table_key, self:provider.flags_table_key}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -40,7 +40,7 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource:
-        - 'arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMO_FEATURE_FLAGS_TABLE}'
+        - 'arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMO_EMP_TABLE}'
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
 #    - Effect: "Allow"
@@ -130,7 +130,7 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: ${self:provider.environment.DYNAMO_FEATURE_FLAGS_TABLE}
+        TableName: ${self:provider.environment.DYNAMO_EMP_TABLE}
 #resources:
 #  Resources:
 #    NewResource:
